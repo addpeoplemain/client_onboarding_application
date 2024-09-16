@@ -192,6 +192,31 @@ def jsonToDataFrame(resultDict,selected_keywords):
     return df
 st.title("Add People: Keyword Analysis Dashobard")
 
+st.markdown("""
+<style>
+    [data-testid=stSidebar] {
+        background-color:#F7F5F2 ;
+        color: #173340;
+        
+    }
+  
+
+</style>
+""", unsafe_allow_html=True)
+
+    with st.sidebar:
+        st.image("logo.png")
+        st.write("""
+                 
+         **Onboarding Application 1.0**
+         
+         Onboarding Application 1.0
+                 
+        
+
+            """
+         )
+
 numberOfScrape = st.slider("How many  times do  you wnat the keyword scraper to be ran?",1,20,2)
 listOfKeywords = ["plumber","builder","accountant"]
 
