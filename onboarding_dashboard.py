@@ -206,7 +206,7 @@ if submitted:
     resultDict = googleAdScraper(numberOfScrape,selected_keywords)
     rawDataOutput = jsonToDataFrame(resultDict,selected_keywords)
     result_df = st.dataframe(rawDataOutput)
-    awOutput.to_csv('GoogleAdScraperResult.csv',index=False)
+    rawDataOutput.to_csv('GoogleAdScraperResult.csv',index=False)
 
 displayResult = st.button("Display Result")
 if displayResult:
