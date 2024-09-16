@@ -9,6 +9,34 @@ from bs4 import BeautifulSoup
 
 def displayScrapeResult():
     st.write('display results')
+    st.title(':bar_chart: Data visualisation')
+    df = pd.read_csv('GoogleAdScraperResult.csv')
+
+    keywords = df['Keyword'].unique().tolist()
+    keyword_selection = st.multiselect('Keyword:',keywords,default=keywords)
+    if not keyword_selection:
+        st.error("Please select at least one keyword to display the dataframe.")
+    mask = df['Keyword'].isin(keyword_selection)
+    number_of_result = df[mask].shape[0]
+    st.markdown(f'*Available rows: {number_of_result}*')
+    st.dataframe(df[mask])
+
+    # st.dataframe(groupedKeywordPercentage_df)
+    groupedKeywordPercentage_df = generateKeywordAdPercentage(df)
+    # remove rows with zero percentage
+    groupedKeywordPercentage_df = groupedKeywordPercentage_df[groupedKeywordPercentage_df.Percentage != 0]
+
+
+    # plot bar chart
+    bar_chart = px.bar(
+        groupedKeywordPercentage_df,
+        x="Keyword",
+        y="Percentage",
+        text="Percentage",
+        template="plotly_white",
+        title="Keyword Ads Percentage(%)"
+    )
+    st.plotly_chart(bar_chart)
 
 def googleAdScraper(numberOfScrape,selected_keywords):
 
@@ -178,6 +206,7 @@ if submitted:
     resultDict = googleAdScraper(numberOfScrape,selected_keywords)
     rawDataOutput = jsonToDataFrame(resultDict,selected_keywords)
     result_df = st.dataframe(rawDataOutput)
+    awOutput.to_csv('GoogleAdScraperResult.csv',index=False)
 
 displayResult = st.button("Display Result")
 if displayResult:
