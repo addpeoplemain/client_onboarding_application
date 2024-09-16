@@ -143,7 +143,7 @@ def jsonToDataFrame(resultDict,selected_keywords):
                     resultDict[keyword][company]["bottom"],
                     topPercentage,
                     bottomPercentage,
-                    round((resultDict[keyword]["total top ads"] + resultDict[keyword]["total bottom ads"])/(numberOfScrape*2) * 100,1),
+                    round((resultDict[keyword]["total_top_ads"] + resultDict[keyword]["total_bottom_ads"])/(numberOfScrape*2) * 100,1),
                     ]
                 )
         else:
