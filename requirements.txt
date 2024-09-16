@@ -1,0 +1,13 @@
+ipykernel
+pre-commit
+requests
+pandas
+numpy
+matplotlib
+plotly
+streamlit
+scikit-learn
+streamlit-extras
+extra_streamlit_components
+tldextract
+beautifulsoup4
