@@ -115,9 +115,9 @@ def googleAdScraper(numberOfScrape,selected_keywords):
         keys = list(resultDict[keyword].keys())
         for name in ['bottom', 'top', 'absolute-top']:
             keys.sort(key=lambda k: resultDict[keyword][k][name], reverse=True)
-
-        resultDict['total top ads'] = numOfTopAds
-        resultDict['total bottom ads'] = numOfBottomAds
+        resultDict[keyword]['top_performers'] = keys
+        resultDict['total_top_ads'] = numOfTopAds
+        resultDict['total_bottom_ads'] = numOfBottomAds
     print(json.dumps(resultDict, indent=4))
     st.success('"Google Ads Scraping Complete!')
     return resultDict
@@ -125,14 +125,14 @@ def googleAdScraper(numberOfScrape,selected_keywords):
 def jsonToDataFrame(resultDict,selected_keywords):
     resultList = []
     for keyword in selected_keywords:
-        if (resultDict[keyword]["top performers"] != []):
-            for company in resultDict[keyword]["top performers"]:
+        if (resultDict[keyword]["top_performers"] != []):
+            for company in resultDict[keyword]["top_performers"]:
                 topPercentage = 0
                 bottomPercentage = 0
-                if resultDict[keyword]["total top ads"] != 0:
-                    topPercentage = round((resultDict[keyword][company]["top"]+resultDict[keyword][company]["absolute-top"])/resultDict[keyword]["total top ads"] * 100,1)
-                if resultDict[keyword]["total bottom ads"] != 0:
-                    bottomPercentage = round(resultDict[keyword][company]["bottom"]/resultDict[keyword]["total bottom ads"] * 100,1)
+                if resultDict[keyword]["total_top_ads"] != 0:
+                    topPercentage = round((resultDict[keyword][company]["top"]+resultDict[keyword][company]["absolute-top"])/resultDict[keyword]["total_top_ads"] * 100,1)
+                if resultDict[keyword]["total_bottom_ads"] != 0:
+                    bottomPercentage = round(resultDict[keyword][company]["bottom"]/resultDict[keyword]["total_bottom_ads"] * 100,1)
 
                 resultList.append(
                     [
