@@ -115,7 +115,7 @@ def googleAdScraper(numberOfScrape,selected_keywords):
         keys = list(resultDict[keyword].keys())
         for name in ['bottom', 'top', 'absolute-top']:
             keys.sort(key=lambda k: resultDict[keyword][k][name], reverse=True)
-        resultDict[keyword]['top_performers'] = keys
+        resultDict[keyword]['top performers'] = keys
         resultDict[keyword]['total top ads'] = numOfTopAds
         resultDict[keyword]['total bottom ads'] = numOfBottomAds
     print(json.dumps(resultDict, indent=4))
