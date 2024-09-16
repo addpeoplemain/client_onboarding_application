@@ -153,10 +153,10 @@ listOfKeywords = ["plumber","builder","accountant"]
 col1,col2= st.columns(2)
 with col1:
     selected_keywords = st_tags(
-        label="Add Keyword!"
-        text="Press Enter To Adde Another Keyword"
-        value=listOfKeywords
-        suggestions=['accountancy','loans','electrician']
+        label="Add Keyword!",
+        text="Press Enter To Adde Another Keyword",
+        value=listOfKeywords,
+        suggestions=['accountancy','loans','electrician'],
         maxtags=8,
         key='aljnf'
     )
