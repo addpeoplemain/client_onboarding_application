@@ -204,9 +204,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-    with st.sidebar:
-        st.image("logo.png")
-        st.write("""
+with st.sidebar:
+    st.image("logo.png")
+    st.write("""
                  
          **Onboarding Application 1.0**
          
