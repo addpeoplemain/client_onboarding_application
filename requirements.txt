@@ -6,6 +6,7 @@ numpy
 matplotlib
 plotly
 streamlit
+streamlit-tags
 scikit-learn
 streamlit-extras
 extra_streamlit_components
