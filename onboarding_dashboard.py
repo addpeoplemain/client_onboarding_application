@@ -37,7 +37,18 @@ def displayScrapeResult():
         title="Keyword Ads Percentage(%)"
     )
     st.plotly_chart(bar_chart)
+# Generate Keyword Ads Appearance Percentage
+def generateKeywordAdPercentage(df):
+    keywordAdPercentage = []
+    for keyword in df['Keyword'].unique().tolist():
+        if df[df['Keyword'] == keyword]['Keyword Ads Percentage(%)'].max() is None:
+            keywordAdPercentage.append(0)
+        else:
+            keywordAdPercentage.append(df[df['Keyword'] == keyword]['Keyword Ads Percentage(%)'].max())
 
+    groupedKeywordPercentage_df = pd.DataFrame(list(zip(df['Keyword'].unique().tolist(), keywordAdPercentage)),columns =['Keyword', 'Percentage'])
+    groupedKeywordPercentage_df = groupedKeywordPercentage_df.sort_values(by=['Percentage'],ascending=False)
+    return groupedKeywordPercentage_df
 def googleAdScraper(numberOfScrape,selected_keywords):
 
     st.subheader('Progress:')
