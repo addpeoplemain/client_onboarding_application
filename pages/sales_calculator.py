@@ -14,7 +14,7 @@ clickable_email = st.checkbox("Clickable Email")
 contact_form = st.checkbox("Contact Form")
 cta_list = ["yes","no","no","no"]
 
-if clickable_call:
+if not clickable_call:
     del cta_list[-1]
 if not clickable_email:
     del cta_list[-1]
