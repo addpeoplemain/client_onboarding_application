@@ -190,7 +190,7 @@ def jsonToDataFrame(resultDict,selected_keywords):
 
     df = pd.DataFrame(resultList,columns=["Keyword","Company","absolute-top","top","bottom","top(%)","bottom(%)","Keyword Ads Percentage(%)"])
     return df
-st.title("Add People: Keyword Analysis Dashobard")
+st.title("Add People: Keyword Analysis Dashboard")
 
 st.markdown("""
 <style>
@@ -217,14 +217,14 @@ with st.sidebar:
             """
          )
 
-numberOfScrape = st.slider("How many  times do  you wnat the keyword scraper to be ran?",1,20,2)
+numberOfScrape = st.slider("How many  times do  you want the keyword scraper to be ran?",1,20,2)
 listOfKeywords = ["plumber","builder","accountant"]
 
 col1,col2= st.columns(2)
 with col1:
     selected_keywords = st_tags(
         label="Add Keyword!",
-        text="Press Enter To Adde Another Keyword",
+        text="Press Enter To Add Another Keyword",
         value=listOfKeywords,
         suggestions=['accountancy','loans','electrician'],
         maxtags=8,
