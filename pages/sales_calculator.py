@@ -27,8 +27,8 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     
     if no_count > 0:
         # If 'no' was found, reduce total conversions by 25% for each 'no'
-        conversions = conversions * (1 - (0.25 * no_count))  # Reduce conversions by 25% for each 'no'
-        additional_cost = monthly_budget * (0.25 * no_count)  # Add 25% of the budget as additional cost for each 'no'
+        conversions = conversions * (1 - (0.25))  # Reduce conversions by 25% for each 'no'
+        additional_cost = monthly_budget * (0.25)  # Add 25% of the budget as additional cost for each 'no'
         total_budget = monthly_budget + additional_cost
     else:
         # If no 'no' in the list, keep the conversions and budget as is
@@ -57,24 +57,24 @@ if not contact_form:
     
 st.write(cta_list)
 
-lead_to_deals_df = pd.DataFrame(
+cpc_month_df = pd.DataFrame(
 {
-    "Type": ["Total Leads", "Total Deals"],
-    "Num": [1, 1],
+    "Type": ["Cost Per Conversion", "Monthly Budget"],
+    "Num": [1.50, 1.50],
 }
 )
 
-def df_on_change(lead_to_deals_df):
+def df_on_change(cpc_month_df):
     state = st.session_state["df_editor"]
     for index, updates in state["edited_rows"].items():
-        st.session_state["lead_to_deals_df"].loc[st.session_state["lead_to_deals_df"].index == index, "Complete"] = True
+        st.session_state["cpc_month_df"].loc[st.session_state["cpc_month_df"].index == index, "Complete"] = True
         for key, value in updates.items():
-            st.session_state["lead_to_deals_df"].loc[st.session_state["lead_to_deals_df"].index == index, key] = value
+            st.session_state["cpc_month_df"].loc[st.session_state["cpc_month_df"].index == index, key] = value
 
-def lead_to_deals_editor():
-    if "lead_to_deals_df" not in st.session_state:
-        st.session_state["lead_to_deals_df"] = lead_to_deals_df
-    st.data_editor(st.session_state["lead_to_deals_df"], key="df_editor", on_change=df_on_change, args=[lead_to_deals_df],
+def cpc_month_editor():
+    if "cpc_month_df" not in st.session_state:
+        st.session_state["cpc_month_df"] = lead_to_deals_df
+    st.data_editor(st.session_state["cpc_month_df"], key="df_editor", on_change=df_on_change, args=[cpc_month_df],
         column_config={
             "Type": st.column_config.Column(
                 disabled=True
@@ -85,11 +85,11 @@ def lead_to_deals_editor():
         hide_index=True
     )
 
-lead_to_deals_editor()
+cpc_month_editor()
 
-leads_to_deals_edited_df = st.session_state["lead_to_deals_df"]
-total_leads = leads_to_deals_edited_df['Num'].iloc[0]
-total_deals = leads_to_deals_edited_df['Num'].iloc[1]
+cpc_month__edited_df = st.session_state["cpc_month_df"]
+cpc = leads_to_deals_edited_df['Num'].iloc[0]
+month = leads_to_deals_edited_df['Num'].iloc[1]
 leads_to_deals = leads_to_deals_edited_df['Num'].iloc[1] / leads_to_deals_edited_df['Num'].iloc[0]
 
 st.info(f"Leads to Deals(%) = {round(leads_to_deals * 100, 2)}%")
