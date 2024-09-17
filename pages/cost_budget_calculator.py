@@ -14,6 +14,9 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     ctr = 0.05  # 5% Click-Through Rate
     conversion_rate = 0.02  # 2% Conversion Rate
     no_count = 0
+
+    # Calculate the number of clicks that can be afforded based on the monthly budget and CPC
+    clicks_affordable = monthly_budget / cpc
     
     # Calculate the number of clicks generated from the budget (assuming every dollar spent gives a click)
     clicks = min(clicks_affordable, monthly_searches * CTR)
@@ -40,7 +43,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     
     # Calculate the spend per conversion (cost per lead)
     cost_per_conversion = total_budget / conversions
-    
+
     st.write("DEBUG MENU")
     st.write("Total Budget =")
     st.write(total_budget)
