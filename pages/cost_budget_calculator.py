@@ -82,7 +82,7 @@ cpc_month_df = pd.DataFrame(
 }
 )
 
-def df_on_change(lead_to_deals_df):
+def df_on_change(cpc_month_df):
     state = st.session_state["df_editor"]
     for index, updates in state["edited_rows"].items():
         st.session_state["cpc_month_df"].loc[st.session_state["cpc_month_df"].index == index, "Complete"] = True
@@ -91,7 +91,7 @@ def df_on_change(lead_to_deals_df):
 
 def cpc_month_editor():
     if "cpc_month_df" not in st.session_state:
-        st.session_state["cpc_month_df"] = lead_to_deals_df
+        st.session_state["cpc_month_df"] = cpc_month_df
     st.data_editor(st.session_state["cpc_month_df"], key="df_editor", on_change=df_on_change, args=[cpc_month_df],
         column_config={
             "Type": st.column_config.Column(
