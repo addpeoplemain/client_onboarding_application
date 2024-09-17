@@ -9,6 +9,13 @@ from streamlit_extras.app_logo import add_logo
 from streamlit_extras.stylable_container import stylable_container 
 
 
+clickable_call = st.checkbox("Clickable Call")
+clickable_email = st.checkbox("Clickable Email")
+clickable_email = st.checkbox("Contact Form")
+
+if agree:
+    st.write("Great!")
+
 def spend_per_conversion_with_condition(cpc, monthly_budget, yes_no):
     # Constant Conversion Rate
     conversion_rate = 0.02  # 2% Conversion Rate
