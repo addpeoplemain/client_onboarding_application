@@ -190,7 +190,7 @@ def jsonToDataFrame(resultDict,selected_keywords):
 
     df = pd.DataFrame(resultList,columns=["Keyword","Company","absolute-top","top","bottom","top(%)","bottom(%)","Keyword Ads Percentage(%)"])
     return df
-st.title("Add People: Keyword Analysis Dashboard")
+st.title("Add People: Keyword Competitor Analysis Dashboard")
 
 st.markdown("""
 <style>
