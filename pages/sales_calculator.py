@@ -59,7 +59,7 @@ st.write(cta_list)
 
 cpc_month_df = pd.DataFrame(
 {
-    "Type": ["Cost Per Conversion", "Monthly Budget"],
+    "Type": ["Cost Per Click", "Monthly Budget"],
     "Num": [1.50, 1.50],
 }
 )
@@ -88,10 +88,10 @@ def cpc_month_editor():
 cpc_month_editor()
 
 cpc_month__edited_df = st.session_state["cpc_month_df"]
-cpc = leads_to_deals_edited_df['Num'].iloc[0]
-month = leads_to_deals_edited_df['Num'].iloc[1]
-leads_to_deals = leads_to_deals_edited_df['Num'].iloc[1] / leads_to_deals_edited_df['Num'].iloc[0]
+cpc = cpc_month__edited_df['Num'].iloc[0]
+month_cost = cpc_month__edited_df['Num'].iloc[1]
+conversion_cpc = spend_per_conversion_with_condition(cpc, monthly_budget, cta_list)
 
-st.info(f"Leads to Deals(%) = {round(leads_to_deals * 100, 2)}%")
+st.info(f"With a monthly budget of {month_cost} and a cost per click of {cpc}. You are expected to receive {conversion_cpc[0]} conversions with a cost per conversion of {conversion_cpc[1]")
 
 
