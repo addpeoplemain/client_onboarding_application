@@ -27,7 +27,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     
     if no_count > 0:
         # If 'no' was found, reduce total conversions by 25% for each 'no'
-        conversions = conversions * (1 - (0.25))  # Reduce conversions by 25% for each 'no'
+        conversions = conversions * (1 - 0.25)  # Reduce conversions by 25% for each 'no'
         additional_cost = monthly_budget * (0.25)  # Add 25% of the budget as additional cost for each 'no'
         total_budget = monthly_budget + additional_cost
     else:
