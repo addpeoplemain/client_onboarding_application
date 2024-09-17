@@ -57,4 +57,41 @@ if not contact_form:
     
 st.write(cta_list)
 
+lead_to_deals_df = pd.DataFrame(
+{
+    "Type": ["Total Leads", "Total Deals"],
+    "Num": [1, 1],
+}
+)
+
+def df_on_change(lead_to_deals_df):
+    state = st.session_state["df_editor"]
+    for index, updates in state["edited_rows"].items():
+        st.session_state["lead_to_deals_df"].loc[st.session_state["lead_to_deals_df"].index == index, "Complete"] = True
+        for key, value in updates.items():
+            st.session_state["lead_to_deals_df"].loc[st.session_state["lead_to_deals_df"].index == index, key] = value
+
+def lead_to_deals_editor():
+    if "lead_to_deals_df" not in st.session_state:
+        st.session_state["lead_to_deals_df"] = lead_to_deals_df
+    st.data_editor(st.session_state["lead_to_deals_df"], key="df_editor", on_change=df_on_change, args=[lead_to_deals_df],
+        column_config={
+            "Type": st.column_config.Column(
+                disabled=True
+            )
+        },
+        disabled=["Complete"],
+        use_container_width=True,
+        hide_index=True
+    )
+
+lead_to_deals_editor()
+
+leads_to_deals_edited_df = st.session_state["lead_to_deals_df"]
+total_leads = leads_to_deals_edited_df['Num'].iloc[0]
+total_deals = leads_to_deals_edited_df['Num'].iloc[1]
+leads_to_deals = leads_to_deals_edited_df['Num'].iloc[1] / leads_to_deals_edited_df['Num'].iloc[0]
+
+st.info(f"Leads to Deals(%) = {round(leads_to_deals * 100, 2)}%")
+
 
