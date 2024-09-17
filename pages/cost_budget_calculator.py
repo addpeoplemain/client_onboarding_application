@@ -41,6 +41,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     cost_per_conversion = total_budget / conversions
     st.write(cost_per_conversion)
     return conversions, cost_per_conversion
+    
 st.title("Cost Per Click To Budget Calculator")
 
 
@@ -95,6 +96,7 @@ cpc_month_editor()
 cpc_month__edited_df = st.session_state["cpc_month_df"]
 cpc = cpc_month__edited_df['Num'].iloc[0]
 month_cost = cpc_month__edited_df['Num'].iloc[1]
+st.write(month_cost)
 conversion_cpc = spend_per_conversion_with_condition(cpc, month_cost, cta_list)
 rounded_cpc= round(cpc,2)
 rounded_month_cost = round(month_cost,2)
