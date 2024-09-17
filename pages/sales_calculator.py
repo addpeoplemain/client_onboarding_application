@@ -90,7 +90,7 @@ cpc_month_editor()
 cpc_month__edited_df = st.session_state["cpc_month_df"]
 cpc = cpc_month__edited_df['Num'].iloc[0]
 month_cost = cpc_month__edited_df['Num'].iloc[1]
-conversion_cpc = spend_per_conversion_with_condition(cpc, monthly_budget, cta_list)
+conversion_cpc = spend_per_conversion_with_condition(cpc, month_cost, cta_list)
 
 st.info(f"With a monthly budget of {month_cost} and a cost per click of {cpc}. You are expected to receive {conversion_cpc[0]} conversions with a cost per conversion of {conversion_cpc[1]}")
 
