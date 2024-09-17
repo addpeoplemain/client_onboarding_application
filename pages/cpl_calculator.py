@@ -9,7 +9,7 @@ from streamlit_extras.app_logo import add_logo
 from streamlit_extras.stylable_container import stylable_container 
 locale.setlocale(locale.LC_ALL, 'C')
 
-st.set_page_config(initial_sidebar_state="auto", page_title="Add People Cpl App", page_icon="👋", layout="centered", menu_items=None)
+st.set_page_config(initial_sidebar_state="auto", page_title="Add People Application Centre", page_icon="👋", layout="centered", menu_items=None)
 
 st.markdown("""
 <style>
