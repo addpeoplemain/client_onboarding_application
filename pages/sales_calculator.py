@@ -15,12 +15,12 @@ contact_form = st.checkbox("Contact Form")
 cta_list = ["yes","no","no","no"]
 
 if clickable_call:
-    del cta_list[1]
+    del cta_list[-1]
 if not clickable_email:
-    del cta_list[2]
+    del cta_list[-1]
 
 if not contact_form:
-    del cta_list[3]
+    del cta_list[-1]
     
 st.write(cta_list)
 def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
