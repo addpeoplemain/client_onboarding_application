@@ -9,20 +9,6 @@ from streamlit_extras.app_logo import add_logo
 from streamlit_extras.stylable_container import stylable_container 
 
 
-clickable_call = st.checkbox("Clickable Call")
-clickable_email = st.checkbox("Clickable Email")
-contact_form = st.checkbox("Contact Form")
-cta_list = ["yes","no","no","no"]
-
-if not clickable_call:
-    del cta_list[-1]
-if not clickable_email:
-    del cta_list[-1]
-
-if not contact_form:
-    del cta_list[-1]
-    
-st.write(cta_list)
 def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     # Constant Conversion Rate
     conversion_rate = 0.02  # 2% Conversion Rate
@@ -55,4 +41,26 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     cost_per_conversion = total_budget / conversions
     
     return conversions, cost_per_conversion
+
+clickable_call = st.checkbox("Clickable Call")
+clickable_email = st.checkbox("Clickable Email")
+contact_form = st.checkbox("Contact Form")
+cta_list = ["yes","no","no","no"]
+
+if not clickable_call:
+    del cta_list[-1]
+if not clickable_email:
+    del cta_list[-1]
+
+if not contact_form:
+    del cta_list[-1]
+    
+st.write(cta_list)
+
+client_gross_profit_margin_data_df = pd.DataFrame(
+{
+    "Type": ["AOV", "Average Cost", "*(Client Input) Gross Profit Margin % (Client Input)*"],
+    "Num": [2.50, 1.50, 1.00],
+}
+)
 
