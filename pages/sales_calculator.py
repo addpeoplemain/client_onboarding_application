@@ -1,14 +1,12 @@
-
-
-
-
-
-
-
-
-
-
-
+import pandas as pd
+import streamlit as st
+import matplotlib.pyplot as plt
+import numpy as np
+import locale
+import math
+from streamlit import session_state
+from streamlit_extras.app_logo import add_logo
+from streamlit_extras.stylable_container import stylable_container 
 
 
 def spend_per_conversion_with_condition(cpc, monthly_budget, yes_no):
