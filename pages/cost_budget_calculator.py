@@ -39,7 +39,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     
     # Calculate the spend per conversion (cost per lead)
     cost_per_conversion = total_budget / conversions
-    st,write("DEBUG MENU")
+    st.write("DEBUG MENU")
     st.write("Total Budget =")
     st.write(total_budget)
     st.write("conversions =")
