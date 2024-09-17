@@ -19,7 +19,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, c
     clicks_affordable = monthly_budget / cpc
     
     # Calculate the number of clicks generated from the budget (assuming every dollar spent gives a click)
-    clicks = min(clicks_affordable, monthly_searches * CTR)
+    clicks = min(clicks_affordable, monthly_searches * ctr)
     
     # Calculate the number of conversions (leads)
     conversions = clicks * conversion_rate
