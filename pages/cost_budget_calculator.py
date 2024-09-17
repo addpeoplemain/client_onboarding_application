@@ -102,7 +102,6 @@ cpc_month_editor()
 cpc_month__edited_df = st.session_state["cpc_month_df"]
 cpc = cpc_month__edited_df['Num'].iloc[0]
 month_cost = cpc_month__edited_df['Num'].iloc[1]
-st.write(month_cost)
 
 
 conversion_cpc = spend_per_conversion_with_condition(cpc, month_cost, cta_list)
