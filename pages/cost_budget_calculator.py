@@ -39,7 +39,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     
     # Calculate the spend per conversion (cost per lead)
     cost_per_conversion = total_budget / conversions
-    
+    st.write(cost_per_conversion)
     return conversions, cost_per_conversion
 st.title("Cost Per Click To Budget Calculator")
 
@@ -101,6 +101,6 @@ rounded_month_cost = round(month_cost,2)
 rounded_conversions_cpc_0 = round(conversion_cpc[0],2)
 rounded_conversions_cpc_1 = conversion_cpc[1]
 
-st.info(f"With a cost per click of  £{rounded_cpc} and a monthly budget of £{rounded_month_cost}. You are expected to receive {rounded_conversions_cpc_0} conversions with a cost per conversion of {rounded_conversions_cpc_1}")
+st.info(f"With a cost per click of  £{rounded_cpc} and a monthly budget of £{rounded_month_cost}  You are expected to receive {rounded_conversions_cpc_0} conversions with a cost per conversion of {rounded_conversions_cpc_1}")
 
 
