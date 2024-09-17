@@ -64,3 +64,38 @@ client_gross_profit_margin_data_df = pd.DataFrame(
 }
 )
 
+def average_cost_from_gross_profit_margin(gross_profit_margin, aov):
+    gross_profit = (gross_profit_margin / 100) * aov
+    average_cost = aov - gross_profit
+    return average_cost
+
+def df_on_change_gpm(client_gross_profit_margin_data_df):
+    state_gpm = st.session_state["df_editor_gpm"]
+    for index, updates in state_gpm["edited_rows"].items():
+        st.session_state["client_gross_profit_margin_data_df"].loc[st.session_state["client_gross_profit_margin_data_df"].index == index, "Complete"] = True
+        for key, value in updates.items():
+            st.session_state["client_gross_profit_margin_data_df"].loc[st.session_state["client_gross_profit_margin_data_df"].index == index, key] = value
+    
+    if st.session_state["client_gross_profit_margin_data_df"]['Num'].iloc[1] == 0 and st.session_state["client_gross_profit_margin_data_df"]['Num'].iloc[2] != 0:
+        average_cost = average_cost_from_gross_profit_margin(st.session_state["client_gross_profit_margin_data_df"]['Num'].iloc[2], st.session_state["client_gross_profit_margin_data_df"]['Num'].iloc[0])
+        st.session_state["client_gross_profit_margin_data_df"]['Num'].iloc[1] = average_cost
+
+def client_gross_profit_margin_editor():
+    if "client_gross_profit_margin_data_df" not in st.session_state:
+        st.session_state["client_gross_profit_margin_data_df"] = client_gross_profit_margin_data_df
+    st.data_editor(st.session_state["client_gross_profit_margin_data_df"], key="df_editor_gpm", on_change=df_on_change_gpm, args=[client_gross_profit_margin_data_df],
+        column_config={
+            "Type": st.column_config.Column(
+                disabled=True
+            )
+        },
+        disabled=["Complete"],
+        use_container_width=True,
+        hide_index=True
+    )
+
+client_gross_profit_margin_editor()
+
+client_gross_profit_margin_data_edited_df = st.session_state["client_gross_profit_margin_data_df"]
+gross_profit = client_gross_profit_margin_data_edited_df['Num'].iloc[0] - client_gross_profit_margin_data_edited_df['Num'].iloc[1]
+gross_profit_margin = gross_profit / client_gross_profit_margin_data_edited_df['Num'].iloc[0]
