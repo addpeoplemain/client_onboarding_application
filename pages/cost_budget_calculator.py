@@ -41,7 +41,11 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     cost_per_conversion = total_budget / conversions
     
     return conversions, cost_per_conversion
+st.title("Cost Per Click To Budget Calculator")
 
+
+st.subheader("CTA Selector")
+st.write("Please tick what CTA's are present on the page")
 clickable_call = st.checkbox("Clickable Call")
 clickable_email = st.checkbox("Clickable Email")
 contact_form = st.checkbox("Contact Form")
@@ -55,11 +59,12 @@ if not clickable_email:
 if not contact_form:
     del cta_list[-1]
     
-st.write(cta_list)
 
+st.subheader("CPC & Monthly Budget")
+st.write("Please enter monthly budget and cost per click")
 cpc_month_df = pd.DataFrame(
 {
-    "Type": ["Cost Per Click", "Monthly Budget"],
+    "Type": ["Monthly Budget","Cost Per Click"],
     "Num": [1.50, 1.50],
 }
 )
