@@ -89,7 +89,7 @@ def df_on_change(cpc_month_df):
         for key, value in updates.items():
             st.session_state["cpc_month_df"].loc[st.session_state["cpc_month_df"].index == index, key] = value
 
-def cpc_month_editor():
+def lead_to_deals_editor():
     if "cpc_month_df" not in st.session_state:
         st.session_state["cpc_month_df"] = cpc_month_df
     st.data_editor(st.session_state["cpc_month_df"], key="df_editor", on_change=df_on_change, args=[cpc_month_df],
@@ -103,7 +103,7 @@ def cpc_month_editor():
         hide_index=True
     )
 
-cpc_month_editor()
+lead_to_deals_editor()
 
 cpc_month__edited_df = st.session_state["cpc_month_df"]
 cpc = cpc_month__edited_df['Num'].iloc[0]
