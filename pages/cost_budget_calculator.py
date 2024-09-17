@@ -89,7 +89,7 @@ def df_on_change_gpm(cpc_month_df):
         for key, value in updates.items():
             st.session_state["cpc_month_df"].loc[st.session_state["cpc_month_df"].index == index, key] = value
 
-def cpc_month_df_margin_editor():
+def cpc_month_editor():
     if "cpc_month_df_margin_editor" not in st.session_state:
         st.session_state["cpc_month_df"] = cpc_month_df_margin_editor
     st.data_editor(st.session_state["cpc_month_df"], key="df_editor_gpm", on_change=df_on_change_gpm, args=[cpc_month_df_margin_editor],
