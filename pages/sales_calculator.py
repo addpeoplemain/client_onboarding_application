@@ -22,7 +22,7 @@ if not clickable_email:
 if not contact_form:
     del cta_list[3]
     
-
+st.write(cta_list)
 def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     # Constant Conversion Rate
     conversion_rate = 0.02  # 2% Conversion Rate
