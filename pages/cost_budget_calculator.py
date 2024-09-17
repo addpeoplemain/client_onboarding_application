@@ -11,11 +11,12 @@ from streamlit_extras.stylable_container import stylable_container
 
 def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     # Constant Conversion Rate
+    ctr = 0.05  # 5% Click-Through Rate
     conversion_rate = 0.02  # 2% Conversion Rate
     no_count = 0
     
     # Calculate the number of clicks generated from the budget (assuming every dollar spent gives a click)
-    clicks = monthly_budget / cpc
+    clicks = min(clicks_affordable, monthly_searches * CTR)
     
     # Calculate the number of conversions (leads)
     conversions = clicks * conversion_rate
@@ -39,6 +40,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
     
     # Calculate the spend per conversion (cost per lead)
     cost_per_conversion = total_budget / conversions
+    
     st.write("DEBUG MENU")
     st.write("Total Budget =")
     st.write(total_budget)
