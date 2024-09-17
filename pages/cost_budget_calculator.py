@@ -64,7 +64,7 @@ st.subheader("CPC & Monthly Budget")
 st.write("Please enter monthly budget and cost per click")
 cpc_month_df = pd.DataFrame(
 {
-    "Type": ["Monthly Budget","Cost Per Click"],
+    "Type": ["Cost Per Click","Monthly Budget"],
     "Num": [1.50, 1.50],
 }
 )
