@@ -9,7 +9,7 @@ from streamlit_extras.app_logo import add_logo
 from streamlit_extras.stylable_container import stylable_container 
 
 
-def spend_per_conversion_with_condition(cpc, monthly_budget, cta_list):
+def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, cta_list):
     # Constant Conversion Rate
     ctr = 0.05  # 5% Click-Through Rate
     conversion_rate = 0.02  # 2% Conversion Rate
@@ -77,7 +77,7 @@ st.subheader("CPC & Monthly Budget")
 st.write("Please enter monthly budget and cost per click")
 cpc_month_df = pd.DataFrame(
 {
-    "Type": ["Cost Per Click","Monthly Budget"],
+    "Type": ["Cost Per Click","Monthly Budget","Monthly Searches"],
     "Num": [1.50, 1.50],
 }
 )
@@ -108,9 +108,10 @@ cpc_month_editor()
 cpc_month__edited_df = st.session_state["cpc_month_df"]
 cpc = cpc_month__edited_df['Num'].iloc[0]
 month_cost = cpc_month__edited_df['Num'].iloc[1]
+monthly_searches = cpc_month__edited_df['Num'].iloc[2]
 
 
-conversion_cpc = spend_per_conversion_with_condition(cpc, month_cost, cta_list)
+conversion_cpc = spend_per_conversion_with_condition(cpc, month_cost,monthly_searches, cta_list)
 rounded_cpc= round(cpc,2)
 rounded_month_cost = round(month_cost,2)
 rounded_conversions_cpc_0 = round(conversion_cpc[0],2)
