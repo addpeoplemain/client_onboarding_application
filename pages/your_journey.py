@@ -2,7 +2,10 @@ import streamlit as st
 from streamlit_tags import st_tags
 
 
-st.title("Your Journey With Add People")
+st.title("Add People")
+st.header("Your Journey With Add People")
+
+st.subheader(
 
 st.markdown("""
 <style>
