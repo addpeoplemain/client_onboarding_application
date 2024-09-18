@@ -41,8 +41,7 @@ Explore our four powerful services: the Cost Budget Calculator to uncover your c
 
 Start leveraging these tools to boost your marketing strategy today!""")
 
-if st.button("Home"):
-    st.switch_page("onboarding_dashboard.py")
+
 if st.button("Cost Budget Calculator"):
     st.switch_page("pages/cost_budget_calculator.py")
 if st.button("Cpl Calculator"):
