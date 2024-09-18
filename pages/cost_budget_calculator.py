@@ -24,6 +24,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, c
     # Calculate the number of conversions (leads)
     conversions = clicks * conversion_rate
     additional_cost_no_cta = 0
+    total_budget = monthly_budget
     # Count occurrences of 'no' in cta_list
     for cta in cta_list:
         if 'no' in cta.lower():  # Case-insensitive comparison
