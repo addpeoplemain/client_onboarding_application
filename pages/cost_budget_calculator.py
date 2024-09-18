@@ -72,7 +72,9 @@ if cta_check =="No":
     cta_missing.append("no")
 else:
     cta_missing.append("yes")
-    
+
+if cta_missing[0] =="yes":
+    st.warning("You have CTAS missing from your webpage you can improve your conversion rate. To see your possible conversion with no missing ctas select no")
 #clickable_call = st.checkbox("Clickable Call")
 #clickable_email = st.checkbox("Clickable Email")
 #contact_form = st.checkbox("Contact Form")
