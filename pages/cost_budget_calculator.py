@@ -115,6 +115,19 @@ def lead_to_deals_editor():
         use_container_width=True,
         hide_index=True
     )
+with st.sidebar:
+    st.image("logo.png")
+    st.write("""
+                 
+         **Cost Budget Calculator 1.0**
+         
+         Onboarding Application 1.0
+                 
+        
+
+            """
+         )
+
 
 lead_to_deals_editor()
 
