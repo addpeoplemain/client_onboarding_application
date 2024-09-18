@@ -28,13 +28,22 @@ st.title("Add People")
 st.header("Your Journey With Add People")
 
 st.header("Onboarding")
-st.subheader("Day 2-3 : Welcome Call Booking")
-st.subheader("Day 4-8 : Welcome Call Delivery")
-st.subheader("Day 5-18 : Processes")
-st.subheader("Day 16-19 : Launch Call")
-st.subheader("Day 30-40 : Review Call")
-st.subheader("Day 40+ : Comms")
-st.subheader("Day 40+ : Tech")
+with stylable_container(
+    key="container_client_lead_deal",
+    css_styles="""
+        {
+            margin: auto;
+            width: 50%;
+        }
+    """,
+):
+    st.subheader("Day 2-3 : Welcome Call Booking")
+    st.subheader("Day 4-8 : Welcome Call Delivery")
+    st.subheader("Day 5-18 : Processes")
+    st.subheader("Day 16-19 : Launch Call")
+    st.subheader("Day 30-40 : Review Call")
+    st.subheader("Day 40+ : Comms")
+    st.subheader("Day 40+ : Tech")
 
 
 
