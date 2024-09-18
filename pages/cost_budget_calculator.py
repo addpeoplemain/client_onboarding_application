@@ -146,6 +146,6 @@ rounded_conversions_cpc_1 = round(conversion_cpc[1],2)
 
 st.info(f"With a cost per click of  £{rounded_cpc} and a monthly budget of £{rounded_month_cost}  You are expected to receive {rounded_conversions_cpc_0} conversions with a cost per conversion of {rounded_conversions_cpc_1}")
 
-if cta_missing[0] =="no":
+if cta_missing[0] =="yes":
     st.warning("You have CTAS missing to see the cpc and conversions you could be receiving select no")
 
