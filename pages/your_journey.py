@@ -26,19 +26,8 @@ with st.sidebar:
 
 
 st.title("Your Journey With Add People")
-
-with stylable_container(
-    key="onboarding",
-    css_styles="""
-        {
-            margin: auto;
-            width: 50%;
-        }
-    """,
-):
-
-    st.header("Onboarding")
 st.divider()
+st.subheader("Onboarding")
 with stylable_container(
     key="container_client_lead_deal",
     css_styles="""
