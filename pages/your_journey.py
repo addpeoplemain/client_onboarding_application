@@ -5,7 +5,11 @@ from streamlit_tags import st_tags
 st.title("Add People")
 st.header("Your Journey With Add People")
 
-st.subheader(
+st.subheader("Sales Call")
+st.subheader("Onboarding")
+st.write("Day 2-3 : Welcome Call Booking")
+st.write("Day 2-3 : Welcome Call Delivery")
+st.write("Day 2-3 : Welcome Call Delivery")
 
 st.markdown("""
 <style>
