@@ -141,7 +141,7 @@ conversion_cpc = spend_per_conversion_with_condition(cpc, month_cost,monthly_sea
 rounded_cpc= round(cpc,2)
 rounded_month_cost = round(month_cost,2)
 rounded_conversions_cpc_0 = round(conversion_cpc[0],2)
-rounded_conversions_cpc_1 = conversion_cpc[1]
+rounded_conversions_cpc_1 = round(conversion_cpc[1],2)
 
 st.info(f"With a cost per click of  £{rounded_cpc} and a monthly budget of £{rounded_month_cost}  You are expected to receive {rounded_conversions_cpc_0} conversions with a cost per conversion of {rounded_conversions_cpc_1}")
 
