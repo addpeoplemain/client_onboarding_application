@@ -27,7 +27,7 @@ with st.sidebar:
 
 st.title("Your Journey With Add People")
 st.divider()
-st.subheader("Onboarding")
+
 with stylable_container(
     key="container_client_lead_deal",
     css_styles="""
@@ -37,6 +37,7 @@ with stylable_container(
         }
     """,
 ):
+    st.subheader(":blue[Onboarding]")
     st.subheader("Day 2-3 : Welcome Call Booking")
     st.subheader("Day 4-8 : Welcome Call Delivery")
     st.subheader("Day 5-18 : Processes")
