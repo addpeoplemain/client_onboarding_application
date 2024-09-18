@@ -217,7 +217,7 @@ with st.sidebar:
             """
          )
 
-numberOfScrape = st.slider("How many  times do  you want the keyword scraper to be ran?",1,20,2)
+numberOfScrape = st.slider("How many  times do  you want the keyword scraper to be ran?",1,5,1)
 listOfKeywords = ["plumber","builder","accountant"]
 
 col1,col2= st.columns(2)
@@ -232,6 +232,7 @@ with col1:
     )
 with col2:
     st.caption("Current KeyWord List")
+    st.write(selected_keywords)
 
 submitted = st.button("Submit")
 
