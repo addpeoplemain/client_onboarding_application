@@ -139,8 +139,8 @@ monthly_searches = cpc_month__edited_df['Num'].iloc[2]
 
 
 conversion_cpc = spend_per_conversion_with_condition(cpc, month_cost,monthly_searches, cta_missing)
-rounded_cpc= round(cpc,2)
-rounded_month_cost = round(month_cost,2)
+rounded_cpc= round(cpc,3)
+rounded_month_cost = round(month_cost,3)
 rounded_conversions_cpc_0 = round(conversion_cpc[0],2)
 rounded_conversions_cpc_1 = round(conversion_cpc[1],2)
 
