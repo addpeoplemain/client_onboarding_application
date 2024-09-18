@@ -28,7 +28,7 @@ with st.sidebar:
 st.title("Your Journey With Add People")
 
 
- st.header("Onboarding")
+st.header("Onboarding")
 with stylable_container(
     key="container_client_lead_deal",
     css_styles="""
