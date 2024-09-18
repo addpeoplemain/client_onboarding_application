@@ -66,6 +66,7 @@ cta_check = st.radio(
         "Missing a CTA",
         "No missing CTAs",
     ],
+    index = 1,
 )
 
 if cta_check =="No":
