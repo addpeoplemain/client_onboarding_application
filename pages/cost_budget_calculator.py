@@ -27,7 +27,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, c
     total_budget = monthly_budget
     # Count occurrences of 'no' in cta_list
    
-    if cta_missing[0]=="yes"
+    if cta_missing[0]=="yes":
         # If 'no' was found, reduce total conversions by 25% for each 'no'
         conversions = conversions * (1 - 0.25)  # Reduce conversions by 25% for each 'no'
         additional_cost_no_cta = monthly_budget * (0.25)  # 25% additional cost if ctas missing 
