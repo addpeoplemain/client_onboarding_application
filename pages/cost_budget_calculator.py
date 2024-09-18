@@ -9,11 +9,11 @@ from streamlit_extras.app_logo import add_logo
 from streamlit_extras.stylable_container import stylable_container 
 
 
-def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, cta_list):
+def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, cta_missing):
     # Constant Conversion Rate
     ctr = 0.05  # 5% Click-Through Rate
     conversion_rate = 0.02  # 2% Conversion Rate
-    yes_no_count = 1
+    #yes_no_count = 1
 
     # Calculate the number of clicks that can be afforded based on the monthly budget and CPC
     clicks_affordable = monthly_budget / cpc
@@ -26,11 +26,8 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, c
     additional_cost_no_cta = 0
     total_budget = monthly_budget
     # Count occurrences of 'no' in cta_list
-    for cta in cta_list:
-        if 'no' in cta.lower():  # Case-insensitive comparison
-            yes_no_count += 1
-  
-    if yes_no_count > 1:
+   
+    if cta_missing[0]=="yes"
         # If 'no' was found, reduce total conversions by 25% for each 'no'
         conversions = conversions * (1 - 0.25)  # Reduce conversions by 25% for each 'no'
         additional_cost_no_cta = monthly_budget * (0.25)  # 25% additional cost if ctas missing 
@@ -58,21 +55,35 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, c
     
 st.title("Cost Per Click To Budget Calculator")
 
+cta_missing=[]
 
 st.subheader("CTA Selector")
-st.write("Please tick what CTA's are present on the page")
-clickable_call = st.checkbox("Clickable Call")
-clickable_email = st.checkbox("Clickable Email")
-contact_form = st.checkbox("Contact Form")
-cta_list = ["yes","no","no","no"]
+st.write("Are Any CTAS missing from the landing page ?")
+cta_check = st.radio(
+    "If any CTAs are missing please click yes",
+    ["Yes","No"],
+    captions=[
+        "Missing A CTA",
+        "No missing CTAs",
+    ],
+)
 
-if not clickable_call:
-    del cta_list[-1]
-if not clickable_email:
-    del cta_list[-1]
+if cta_check =="No":
+    cta_missing.append("no")
+else:
+    cta_missing.append("yes)
+#clickable_call = st.checkbox("Clickable Call")
+#clickable_email = st.checkbox("Clickable Email")
+#contact_form = st.checkbox("Contact Form")
+#cta_list = ["yes","no","no","no"]
 
-if not contact_form:
-    del cta_list[-1]
+#if not clickable_call:
+  #  del cta_list[-1]
+#if not clickable_email:
+   # del cta_list[-1]
+
+#if not contact_form:
+   # del cta_list[-1]
     
 
 st.subheader("CPC & Monthly Budget")
@@ -113,7 +124,7 @@ month_cost = cpc_month__edited_df['Num'].iloc[1]
 monthly_searches = cpc_month__edited_df['Num'].iloc[2]
 
 
-conversion_cpc = spend_per_conversion_with_condition(cpc, month_cost,monthly_searches, cta_list)
+conversion_cpc = spend_per_conversion_with_condition(cpc, month_cost,monthly_searches, cta)
 rounded_cpc= round(cpc,2)
 rounded_month_cost = round(month_cost,2)
 rounded_conversions_cpc_0 = round(conversion_cpc[0],2)
