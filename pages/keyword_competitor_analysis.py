@@ -118,9 +118,8 @@ def googleAdScraper(numberOfScrape,selected_keywords):
                     progress += (0.5/len(selected_keywords)*numberOfScrape)
                     
                     if progress >= 1:
-                        my_bar.progress(progress)
-                    else:
-                        my_bar.progress(0)
+                        my_bar.progress(progress + 1)
+                    
                 time.sleep(4)
                 
                 #bottom ads
