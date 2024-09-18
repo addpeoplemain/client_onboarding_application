@@ -6,9 +6,9 @@ from streamlit_tags import st_tags
 import requests, lxml, json, time
 import tldextract
 from bs4 import BeautifulSoup
-
-st.title("Add People App Centre")
 st.set_page_config(layout="wide")
+st.title("Add People App Centre")
+
 st.markdown("""
 <style>
     [data-testid=stSidebar] {
