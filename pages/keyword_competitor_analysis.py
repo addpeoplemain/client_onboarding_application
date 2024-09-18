@@ -69,7 +69,7 @@ def googleAdScraper(numberOfScrape,selected_keywords):
         absolute_top = 0
 
         for _ in range(numberOfScrape):
-
+            progress +=1
             payload = {'q': keyword}
             html = requests.get("https://www.google.com/search?q=", params=payload, headers=headers, cookies=cookies)
             status_code = html.status_code
@@ -115,10 +115,8 @@ def googleAdScraper(numberOfScrape,selected_keywords):
                         print(advertisementTitle)
                         print(productDescription)
                         absolute_top += 1
-                    progress += (0.5/len(selected_keywords)*numberOfScrape)
-                    
-                    if progress >= 1:
-                        my_bar.progress(progress + 1)
+                        progress += (0.5/len(selected_keywords)*numberOfScrape)
+                        my_bar.progress(progress)
                     
                 time.sleep(4)
                 
@@ -147,10 +145,7 @@ def googleAdScraper(numberOfScrape,selected_keywords):
                         except AttributeError:
                             productDescription = 'N/A'
                     progress += (0.5/len(selected_keywords)*numberOfScrape)
-                    if progress >= 1:
-                        my_bar.progress(1)
-                    else:
-                        my_bar.progress(0)
+                    my_bar.progress(round(progress,1))
         keys = list(resultDict[keyword].keys())
         for name in ['bottom', 'top', 'absolute-top']:
             keys.sort(key=lambda k: resultDict[keyword][k][name], reverse=True)
