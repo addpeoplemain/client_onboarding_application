@@ -13,7 +13,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, c
     # Constant Conversion Rate
     ctr = 0.05  # 5% Click-Through Rate
     conversion_rate = 0.02  # 2% Conversion Rate
-    no_count = 0
+    yes_no_count = 1
 
     # Calculate the number of clicks that can be afforded based on the monthly budget and CPC
     clicks_affordable = monthly_budget / cpc
@@ -23,17 +23,18 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, c
     
     # Calculate the number of conversions (leads)
     conversions = clicks * conversion_rate
-    
+    additional_cost_no_cta = 0
     # Count occurrences of 'no' in cta_list
     for cta in cta_list:
         if 'no' in cta.lower():  # Case-insensitive comparison
-            no_count += 1
-    
-    if no_count > 0:
+            yes_no_count += 1
+  
+    if yes_no_count > 1:
         # If 'no' was found, reduce total conversions by 25% for each 'no'
         conversions = conversions * (1 - 0.25)  # Reduce conversions by 25% for each 'no'
-        additional_cost = monthly_budget * (0.25)  # Add 25% of the budget as additional cost for each 'no'
-        total_budget = monthly_budget + additional_cost
+        additional_cost_no_cta = monthly_budget * (0.25)  # 25% additional cost if ctas missing 
+        
+        #total_budget = monthly_budget + additional_cost
     else:
         # If no 'no' in the list, keep the conversions and budget as is
         total_budget = monthly_budget
@@ -42,7 +43,7 @@ def spend_per_conversion_with_condition(cpc, monthly_budget, monthly_searches, c
         return float('inf'), 0  # Return infinity for cost per conversion if no leads, and 0 for leads
     
     # Calculate the spend per conversion (cost per lead)
-    cost_per_conversion = total_budget / conversions
+    cost_per_conversion = (total_budget / conversions)+additional_cost_no_cta
 
     st.write("DEBUG MENU")
     st.write("Total Budget =")
