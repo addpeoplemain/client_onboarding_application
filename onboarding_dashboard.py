@@ -17,17 +17,6 @@ st.markdown("""
         
     }
 
-    button {
-    background-color: blue; /* Green */
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-  
-
 </style>
 """, unsafe_allow_html=True)
 
