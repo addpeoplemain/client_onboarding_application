@@ -71,7 +71,7 @@ cta_check = st.radio(
 if cta_check =="No":
     cta_missing.append("no")
 else:
-    cta_missing.append("yes)
+    cta_missing.append("yes")
 #clickable_call = st.checkbox("Clickable Call")
 #clickable_email = st.checkbox("Clickable Email")
 #contact_form = st.checkbox("Contact Form")
