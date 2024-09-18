@@ -40,3 +40,14 @@ Welcome to our web application, your all-in-one toolkit for smarter digital mark
 Explore our four powerful services: the Cost Budget Calculator to uncover your conversions and cost per conversion, the CPL Calculator to discover your cost per lead, Keyword Competitor Analysis to stay ahead of your competition, and Your Journey to help you visualize your journey with addpeople. 
 
 Start leveraging these tools to boost your marketing strategy today!""")
+
+if st.button("Home"):
+    st.switch_page("onboarding_dashboard.py")
+if st.button("Cost Budget Calculator"):
+    st.switch_page("pages/cost_budget_calculator.py")
+if st.button("Cpl Calculator"):
+    st.switch_page("pages/cpl_calculator.py")
+if st.button("Keyword Competitor Analyser"):
+    st.switch_page("pages/keyword_competitor_analysis.py")
+if st.button("Your Journey"):
+    st.switch_page("pages/your_journey.py")
