@@ -69,7 +69,6 @@ def googleAdScraper(numberOfScrape,selected_keywords):
         absolute_top = 0
 
         for _ in range(numberOfScrape):
-            progress +=1
             payload = {'q': keyword}
             html = requests.get("https://www.google.com/search?q=", params=payload, headers=headers, cookies=cookies)
             status_code = html.status_code
