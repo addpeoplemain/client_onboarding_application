@@ -208,7 +208,7 @@ with st.sidebar:
     st.image("logo.png")
     st.write("""
                  
-         **Onboarding Application 1.0**
+         **Keyword Competitor Analysis 1.0**
          
          Onboarding Application 1.0
                  
