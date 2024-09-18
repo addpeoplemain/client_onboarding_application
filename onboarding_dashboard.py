@@ -37,6 +37,6 @@ st.subheader("Welcome to the add people app centre")
 st.markdown("""
 Welcome to our web application, your all-in-one toolkit for smarter digital marketing! 
 
-Explore our four powerful services: the Cost Budget Calculator to optimize your campaign spending, the CPL Calculator to track and improve your cost per lead, Keyword Competitor Analysis to stay ahead of your competition, and Your Journey to help you visualize your journey with addpeople. 
+Explore our four powerful services: the Cost Budget Calculator to uncover your conversions and cost per conversion, the CPL Calculator to discover your cost per lead, Keyword Competitor Analysis to stay ahead of your competition, and Your Journey to help you visualize your journey with addpeople. 
 
 Start leveraging these tools to boost your marketing strategy today!""")
