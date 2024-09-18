@@ -8,7 +8,7 @@ import tldextract
 from bs4 import BeautifulSoup
 
 st.title("Add People App Centre")
-
+st.set_page_config(layout="wide")
 st.markdown("""
 <style>
     [data-testid=stSidebar] {
