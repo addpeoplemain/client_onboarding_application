@@ -114,7 +114,7 @@ def googleAdScraper(numberOfScrape,selected_keywords):
                         print(advertisementTitle)
                         print(productDescription)
                         absolute_top += 1
-                        progress += 5
+                        progress += 6
                         my_bar.progress(progress)
                         
                     
@@ -144,7 +144,7 @@ def googleAdScraper(numberOfScrape,selected_keywords):
                             productDescription = container.find('div', class_='Va3FIb r025kc lVm3ye').text
                         except AttributeError:
                             productDescription = 'N/A'
-                    progress += 5
+                    progress += 6
                     my_bar.progress(progress)
         keys = list(resultDict[keyword].keys())
         for name in ['bottom', 'top', 'absolute-top']:
@@ -234,7 +234,7 @@ submitted = st.button("Submit")
 
 if submitted:
     st.write("Scraping google for the selected keywords:",str(selected_keywords),'for',numberOfScrape, ' times!')
-    st.write("Submission Compelte")
+    st.write("Submission Complete")
 
     resultDict = googleAdScraper(numberOfScrape,selected_keywords)
     rawDataOutput = jsonToDataFrame(resultDict,selected_keywords)
