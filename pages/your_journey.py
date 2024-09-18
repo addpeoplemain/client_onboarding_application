@@ -39,7 +39,7 @@ with stylable_container(
     """,
 ):
     st.header("Onboarding")
-    st.divder()
+    st.divider()
     st.subheader("Day 2-3 : Welcome Call Booking")
     st.subheader("Day 4-8 : Welcome Call Delivery")
     st.subheader("Day 5-18 : Processes")
