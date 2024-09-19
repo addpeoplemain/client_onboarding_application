@@ -114,7 +114,7 @@ def googleAdScraper(numberOfScrape,selected_keywords):
                         print(advertisementTitle)
                         print(productDescription)
                         absolute_top += 1
-                        progress += 6
+                        progress += 1
                         my_bar.progress(progress)
                         
                     
@@ -144,7 +144,7 @@ def googleAdScraper(numberOfScrape,selected_keywords):
                             productDescription = container.find('div', class_='Va3FIb r025kc lVm3ye').text
                         except AttributeError:
                             productDescription = 'N/A'
-                    progress += 6
+                    progress += 1
                     my_bar.progress(progress)
         keys = list(resultDict[keyword].keys())
         for name in ['bottom', 'top', 'absolute-top']:
